@@ -1,13 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_task1/Task_1/widgets/cutome_card.dart';
 import 'package:flutter_task1/Task_1/widgets/dash_table.dart';
-import 'package:flutter_task1/login.dart';
-import 'package:flutter_task1/router.dart';
-import 'package:flutter_task1/sharedpref.dart';
 
-import '../db.dart';
 
 class Dashbord extends StatefulWidget {
   const Dashbord({super.key});

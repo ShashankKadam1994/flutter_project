@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task1/home.dart';
-import 'package:flutter_task1/login.dart';
-import 'package:flutter_task1/registration.dart';
-import 'package:flutter_task1/practise.dart';
 import 'package:flutter_task1/router.dart';
 import 'package:flutter_task1/sharedpref.dart';
 import 'package:flutter_task1/splash_screen.dart';
-import 'package:flutter_task1/videoplayernew.dart';
 
 import 'db.dart';
 
