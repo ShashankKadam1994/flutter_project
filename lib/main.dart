@@ -7,8 +7,8 @@ import 'db.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await MyDataBase().initializedDB();
-  await SessionManager().init();
+  // await MyDataBase().initializedDB();
+  // await SessionManager().init();
   runApp(const MyApp());
 }
 
