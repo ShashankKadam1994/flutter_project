@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task1/Task_1/dashbord.dart';
 import 'package:flutter_task1/Task_1/hello_profile.dart';
+import 'package:flutter_task1/Task_3/user_dashbord.dart';
 import 'package:flutter_task1/home.dart';
 import 'package:flutter_task1/login.dart';
 import 'package:flutter_task1/practise.dart';
@@ -32,7 +33,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       // MaterialPageRoute(builder: (context) => const HomePage()),
-      MaterialPageRoute(builder: (context) => const Dashbord()),
+      // MaterialPageRoute(builder: (context) => const Dashbord()),
+      MaterialPageRoute(builder: (context) => const UserDashbord()) ,
     );
   }
   _navigateToReg() async {
@@ -41,7 +43,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Navigator.pushReplacement(
       context,
       // MaterialPageRoute(builder: (context) => const Login()),
-      MaterialPageRoute(builder: (context) => const Dashbord()) ,
+      // MaterialPageRoute(builder: (context) => const Dashbord()) ,
+      MaterialPageRoute(builder: (context) => const UserDashbord()) ,
     );
   }
 
