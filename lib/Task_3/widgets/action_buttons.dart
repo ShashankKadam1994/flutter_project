@@ -17,12 +17,18 @@ class ActionButtons extends StatelessWidget {
     required this.textColor,
     this.borderRadius = 16.0,
     this.padding = 16.0,
-    this.fontSize = 16.0,
+    this.fontSize = 12.0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    double screenWidth = MediaQuery.of(context).size.width;
+    double buttonWidth = screenWidth * 0.4;
+    // double buttonHeight = screenWidth * 0.1;
+    return SizedBox(
+      width: buttonWidth,
+      // height: buttonHeight,
+    child:  ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
@@ -38,6 +44,6 @@ class ActionButtons extends StatelessWidget {
           color: textColor,
         ),
       ),
-    );
+    ),);
   }
 }
