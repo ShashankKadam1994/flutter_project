@@ -22,13 +22,9 @@ class ActionButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double buttonWidth = screenWidth * 0.4;
-    // double buttonHeight = screenWidth * 0.1;
-    return SizedBox(
-      width: buttonWidth,
-      // height: buttonHeight,
-    child:  ElevatedButton(
+
+    return
+      ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: backgroundColor,
@@ -44,6 +40,6 @@ class ActionButtons extends StatelessWidget {
           color: textColor,
         ),
       ),
-    ),);
+    );
   }
 }

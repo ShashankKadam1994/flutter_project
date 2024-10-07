@@ -82,45 +82,54 @@ class _UserDashbord extends State<UserDashbord> {
               ),
               const SizedBox(height: 10,),
              
-              Card(
-    child: Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: GridView.count(
-        shrinkWrap: true,
-        crossAxisCount: 2, 
-        mainAxisSpacing: 10.0,
-        crossAxisSpacing: 10.0,
-        childAspectRatio: 5,
-        children: [
-          ActionButtons(
-            text: "Update Profile",
-            onPressed: () {},
-            backgroundColor: Colors.blueAccent,
-            textColor: Colors.white,
-          ),
-          ActionButtons(
-            text: "Write New Blog",
-            onPressed: () {},
-            backgroundColor: Colors.green,
-            textColor: Colors.white,
-          ),
-          ActionButtons(
-            text: "Manage Activity",
-            onPressed: () {},
-            backgroundColor: Colors.blueAccent,
-            textColor: Colors.white,
-          ),
-          ActionButtons(
-            text: "Deactivate Account",
-            onPressed: () {},
-            backgroundColor: Colors.redAccent,
-            textColor: Colors.white,
-          ),
-        ],
-      ),
-    ),
-  ),
-  const SizedBox(height: 10),
+             Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      double screenWidth = MediaQuery.of(context).size.width;
+
+                      int crossAxisCount = screenWidth > 600 ? 2 : 2; 
+                      double childAspectRatio = screenWidth > 600 ? 8.5 : 3.5; 
+
+                      return GridView.count(
+                        shrinkWrap: true,
+                        crossAxisCount: crossAxisCount, 
+                        mainAxisSpacing: 10.0, 
+                        crossAxisSpacing: 10.0, 
+                        childAspectRatio: childAspectRatio, 
+                        children: [
+                          ActionButtons(
+                            text: "Update Profile",
+                            onPressed: () {},
+                            backgroundColor: Colors.blueAccent,
+                            textColor: Colors.white,
+                          ),
+                          ActionButtons(
+                            text: "Write New Blog",
+                            onPressed: () {},
+                            backgroundColor: Colors.green,
+                            textColor: Colors.white,
+                          ),
+                          ActionButtons(
+                            text: "Manage Activity",
+                            onPressed: () {},
+                            backgroundColor: Colors.blueAccent,
+                            textColor: Colors.white,
+                          ),
+                          ActionButtons(
+                            text: "Deactivate Account",
+                            onPressed: () {},
+                            backgroundColor: Colors.redAccent,
+                            textColor: Colors.white,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
 
               const Text(
                 "Your Blogs...",
