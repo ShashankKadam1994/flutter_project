@@ -83,31 +83,45 @@ class _UserDashbord extends State<UserDashbord> {
               const SizedBox(height: 10,),
              
               Card(
-                child: Padding(padding: EdgeInsets.all(16.0),
-                 child:Wrap(
-                  spacing: 10.0,  
-                    runSpacing: 10.0, 
-                  children: [
-                    Expanded(
-                    child:ActionButtons(text: "Update Profile", onPressed: (){},backgroundColor: Colors.blueAccent,textColor: Colors.white,),
-                    ),
-                    SizedBox(width: 5,),
-                    Expanded(
-                    child:ActionButtons(text: "Write New Blog", onPressed: (){},backgroundColor: Colors.green,textColor: Colors.white,),
-                    ),
-                    SizedBox(width: 5,),
-                    Expanded(
-                    child:ActionButtons(text: "Manage Activity", onPressed: (){},backgroundColor: Colors.blueAccent,textColor: Colors.white,),
-                    ),
-                    SizedBox(width: 5,),
-                    Expanded(
-                    child:ActionButtons(text: "Deactivate Account", onPressed: (){},backgroundColor: Colors.redAccent,textColor: Colors.white,)
-                    ),
-                  ],
-                ),
-                )
-              ),
-              const SizedBox(height: 10,),
+    child: Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: GridView.count(
+        shrinkWrap: true,
+        crossAxisCount: 2, 
+        mainAxisSpacing: 10.0,
+        crossAxisSpacing: 10.0,
+        childAspectRatio: 5,
+        children: [
+          ActionButtons(
+            text: "Update Profile",
+            onPressed: () {},
+            backgroundColor: Colors.blueAccent,
+            textColor: Colors.white,
+          ),
+          ActionButtons(
+            text: "Write New Blog",
+            onPressed: () {},
+            backgroundColor: Colors.green,
+            textColor: Colors.white,
+          ),
+          ActionButtons(
+            text: "Manage Activity",
+            onPressed: () {},
+            backgroundColor: Colors.blueAccent,
+            textColor: Colors.white,
+          ),
+          ActionButtons(
+            text: "Deactivate Account",
+            onPressed: () {},
+            backgroundColor: Colors.redAccent,
+            textColor: Colors.white,
+          ),
+        ],
+      ),
+    ),
+  ),
+  const SizedBox(height: 10),
+
               const Text(
                 "Your Blogs...",
                 style: TextStyle(

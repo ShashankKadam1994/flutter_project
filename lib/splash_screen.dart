@@ -7,6 +7,7 @@ import 'package:flutter_task1/login.dart';
 import 'package:flutter_task1/practise.dart';
 import 'package:flutter_task1/sharedpref.dart';
 
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -18,12 +19,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    if (SessionManager().sharedPreferences.getBool("isLoggedIn") != null &&
-        SessionManager().sharedPreferences.getBool("isLoggedIn") == true) {
-      _navigateToHome();
-    }else{
-      _navigateToReg();
-    }
+    // if (SessionManager().sharedPreferences.getBool("isLoggedIn") != null &&
+    //     SessionManager().sharedPreferences.getBool("isLoggedIn") == true) {
+    //   _navigateToHome();
+    // }else{
+    //   _navigateToReg();
+    // }
+    _navigateToReg();
 
   }
 
