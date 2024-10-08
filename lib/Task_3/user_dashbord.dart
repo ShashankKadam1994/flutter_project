@@ -68,7 +68,7 @@ class _UserDashbord extends State<UserDashbord> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Name : John Doe"),
+                            Text("Name : Anonymous"),
                             SizedBox(
                               height: 10,
                             ),
@@ -147,25 +147,25 @@ class _UserDashbord extends State<UserDashbord> {
                     BlogCard(
                       title: "Understanding Flutter Widgets",
                       date: "October 7, 2024",
-                      authorName: "John Doe",
+                      authorName: "Anonymous",
                       blogContent: "Flutter widgets are the building blocks of the Flutter UI framework. In this article, we will explore the basics of widgets and how they form the core of every Flutter application...",
                     ),
                     BlogCard(
                       title: "Understanding Java MVC",
                       date: "October 7, 2024",
-                      authorName: "John Doe",
+                      authorName: "Anonymous",
                       blogContent: "Flutter widgets are the building blocks of the Flutter UI framework. In this article, we will explore the basics of widgets and how they form the core of every Flutter application...",
                     ),
                     BlogCard(
                       title: "Understanding Android XML",
                       date: "October 7, 2024",
-                      authorName: "John Doe",
+                      authorName: "Anonymous",
                       blogContent: "Flutter widgets are the building blocks of the Flutter UI framework. In this article, we will explore the basics of widgets and how they form the core of every Flutter application...",
                     ),
                     BlogCard(
                       title: "Understanding .NET Architeture",
                       date: "October 7, 2024",
-                      authorName: "John Doe",
+                      authorName: "Anonymous",
                       blogContent: "Flutter widgets are the building blocks of the Flutter UI framework. In this article, we will explore the basics of widgets and how they form the core of every Flutter application...",
                     ),
 

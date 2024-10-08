@@ -4,17 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task1/login.dart';
 import 'package:flutter_task1/router.dart';
 import 'package:flutter_task1/sharedpref.dart';
+import 'package:intl/intl.dart';
 
+import 'Task_3/user_dashbord.dart';
+import 'Task_3/widgets/action_buttons.dart';
 import 'db.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Homenew extends StatefulWidget {
+  const Homenew({super.key});
 
   @override
-  State<HomePage> createState() => _HomeState();
+  State<Homenew> createState() => _HomeNewState();
 }
 
-class _HomeState extends State<HomePage> {
+class _HomeNewState extends State<Homenew> {
   final TextEditingController _userNameEditController = TextEditingController();
   final TextEditingController _passwordEditController = TextEditingController();
 
@@ -47,156 +50,109 @@ class _HomeState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     getRegData();
+
+
+    String currentDate = DateFormat('dd MMMM yyyy').format(DateTime.now());
+
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text("Home Screen")),
         elevation: 50,
         actions: [
           IconButton(
-              onPressed: () async {
-                showDialog(
-                    context: context,
-                    builder: (c) => AlertDialog(
-                          title: const Text('Logout'),
-                          content: const Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [Text("Do you want to logout?")],
-                          ),
-                          actions: [
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text("No")),
-                            TextButton(
-                                onPressed: () async {
-                                  await logout();
-                                },
-                                child: const Text("Yes"))
-                          ],
-                        ),);
-              },
-              icon: const Icon(Icons.exit_to_app))
+            onPressed: () async {
+              showDialog(
+                context: context,
+                builder: (c) => AlertDialog(
+                  title: const Text('Logout'),
+                  content: const Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [Text("Do you want to logout?")],
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text("No"),
+                    ),
+                    TextButton(
+                      onPressed: () async {
+                        await logout();
+                      },
+                      child: const Text("Yes"),
+                    )
+                  ],
+                ),
+              );
+            },
+            icon: const Icon(Icons.exit_to_app),
+          )
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          firstname != null && lastname != null
-              ? Center(child: Text("WELCOME TO FLUTTER $firstname $lastname"))
-              : const Center(child: Text("WELCOME TO FLUTTER")),
-        ],
-      ),
-      drawer: Container(
-        width: MediaQuery.of(context).size.width * 0.8,
-        decoration: const BoxDecoration(color: Colors.grey),
+      body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              height: 150,
-              width: MediaQuery.of(context).size.width,
-              decoration: const BoxDecoration(color: Colors.white),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: const Icon(
-                    Icons.person,
-                    size: 30,
-                  )),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left:8.0),
-                    child: Icon(
-                      Icons.person,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, AppRoutes.profile);
-                    },
-                    child: const Align(
-                      alignment: FractionalOffset.centerLeft,
-                      child: Text(
-                        "Profile",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  const Icon(
-                    Icons.arrow_forward_ios,
-                    color: Colors.white,
-                  ),
-                ],
+            // Updated greeting with current date
+            firstname != null && lastname != null
+                ? Center(
+              child: Text(
+                "Welcome Priyanka\nToday's date is $currentDate: $firstname $lastname",
+                style: TextStyle(fontSize: 18),
+                textAlign: TextAlign.center,
               ),
-            ),
-            const Divider(
-              height: 0,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left:8.0),
-                    child: Icon(
-                      Icons.exit_to_app,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  TextButton(
-                    onPressed: ()async {
-                      showDialog(
-                        context: context,
-                        builder: (c) => AlertDialog(
-                          title: const Text('Logout'),
-                          content: const Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [Text("Do you want to logout?")],
-                          ),
-                          actions: [
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text("No")),
-                            TextButton(
-                                onPressed: () async {
-                                  await logout();
-                                },
-                                child: const Text("Yes"))
-                          ],
-                        ),);
-                    },
-                    child: const Align(
-                      alignment: FractionalOffset.centerLeft,
-                      child: Text(
-                        "Logout",
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                  ),
-
-                ],
-              ),
-            ),
-            const Divider(
-              height: 0,
             )
+                : const Center(
+              child: Text(
+                "Welcome Priyanka",
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+
+            SizedBox(height: 10),
+
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    ActionButtons(
+                      text: "Task 3",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const UserDashbord()),
+                        );
+                      },
+                      backgroundColor: Colors.purple,
+                      textColor: Colors.white,
+                    ),
+                    SizedBox(height: 10),
+                    ActionButtons(
+                      text: "Write New Blog",
+                      onPressed: () {},
+                      backgroundColor: Colors.purple,
+                      textColor: Colors.white,
+                    ),
+                    SizedBox(height: 10),
+                    ActionButtons(
+                      text: "Manage Activity",
+                      onPressed: () {},
+                      backgroundColor: Colors.purple,
+                      textColor: Colors.white,
+                    ),
+                    SizedBox(height: 10),
+                    ActionButtons(
+                      text: "Deactivate Account",
+                      onPressed: () {},
+                      backgroundColor: Colors.purple,
+                      textColor: Colors.white,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -222,6 +178,6 @@ class _HomeState extends State<HomePage> {
             child: child,
           );
         }),
-        (Route route) => false);
+            (Route route) => false);
   }
 }
