@@ -25,7 +25,7 @@ class BlogCard extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
+         child:Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
