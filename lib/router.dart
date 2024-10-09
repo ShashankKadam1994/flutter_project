@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task1/Task_1/dashbord.dart';
 import 'package:flutter_task1/Task_1/hello_profile.dart';
 import 'package:flutter_task1/Task_3/user_dashbord.dart';
+import 'package:flutter_task1/Task_5/dynamic_list.dart';
 import 'package:flutter_task1/home.dart';
 import 'package:flutter_task1/login.dart';
 import 'package:flutter_task1/practise.dart';
@@ -15,7 +16,7 @@ class AppRoutes {
   static const String helloWord = "helloWord";
   static const String dashbord = "dashbord";
   static const String userDashboard = "userDashboard";
-  //userDashboard
+  static const String dynamicList = "dynamicList";
 
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -33,7 +34,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => ProfileScreen());
       case reg:
         return MaterialPageRoute(builder: (_) => practise());
-        //UserDashbord
+      case dynamicList:
+        return MaterialPageRoute(builder: (_) => DynamicList());
       case userDashboard:
         return MaterialPageRoute(builder: (_) => UserDashbord());
       default:
