@@ -6,6 +6,7 @@ import 'package:flutter_task1/Task_5/models/blog_model.dart';
 import 'package:flutter_task1/Task_5/widgets/content_fild.dart';
 import 'package:flutter_task1/Task_5/widgets/date_field.dart';
 import 'package:flutter_task1/Task_5/widgets/title_field.dart';
+import 'package:flutter_task1/utilility/error_modal.dart';
 
 class DynamicList extends StatefulWidget {
   const DynamicList({super.key});
@@ -22,10 +23,19 @@ class _DynamicList extends State<DynamicList> {
   List<BlogModel> blogs = [];
   DateTime? _selectedDate = DateTime.now();
 
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _contentController = TextEditingController();
+
   void _handleDateSelected(DateTime date) {
     setState(() {
       _selectedDate = date;
     });
+  }
+   @override
+  void dispose() {
+    _titleController.dispose();
+    _contentController.dispose();
+    super.dispose();
   }
 
   void _submitForm() {
@@ -38,13 +48,16 @@ class _DynamicList extends State<DynamicList> {
         blogContent: _blogContent,
       );
 
-      // Add the new blog to the list and refresh the UI
       setState(() {
         blogs.add(newBlog);
         id++;
+        _blogContent="";
+        _blogTitle="";
+        _contentController.clear(); 
+        _titleController.clear(); 
       });
     } else {
-      print('Form is incomplete');
+      showErrorModal(context,"Please Fill All The Fields!","Error",(){});
     }
   }
 
@@ -97,9 +110,15 @@ class _DynamicList extends State<DynamicList> {
               padding: const EdgeInsets.all(16.0),
               child:Column(
                 children: [
-                  TitleField(onSaved: (value) => _blogTitle = value),
+                  TitleField(
+                    controller: _titleController,
+                    onSaved: (value) => _blogTitle = value
+                    ),
                   const SizedBox(height: 20),
-                  ContentFild(onSaved: (value) => _blogContent = value), 
+                  ContentFild(
+                    controller: _contentController,
+                    onSaved: (value) => _blogContent = value
+                    ), 
                   const SizedBox(height: 20),
                   DateField(
                     onDateSelected: _handleDateSelected,
