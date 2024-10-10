@@ -153,7 +153,7 @@ class _HomeNewState extends State<Homenew> {
                       width: buttonWidth,
                       height: buttonHeight,
                       child:ActionButtons(
-                        text: "Task 3",
+                        text: "User Profile(Task 3)",
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -169,7 +169,7 @@ class _HomeNewState extends State<Homenew> {
                       width: buttonWidth,
                       height: buttonHeight,
                       child:ActionButtons(
-                        text: "Write New Blog",
+                        text: "Write New Blog(Task 5)",
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -185,7 +185,7 @@ class _HomeNewState extends State<Homenew> {
                       width: buttonWidth,
                       height: buttonHeight,
                       child:ActionButtons(
-                        text: "Manage Activity",
+                        text: "Coming Soon",
                         onPressed: () {},
                         backgroundColor: Colors.purple,
                         textColor: Colors.white,
@@ -196,7 +196,7 @@ class _HomeNewState extends State<Homenew> {
                       width: buttonWidth,
                       height: buttonHeight,
                       child:ActionButtons(
-                        text: "Deactivate Account",
+                        text: "Coming Soon",
                         onPressed: () {},
                         backgroundColor: Colors.purple,
                         textColor: Colors.white,
