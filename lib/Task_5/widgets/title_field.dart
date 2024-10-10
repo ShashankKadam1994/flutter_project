@@ -3,12 +3,13 @@ import 'package:flutter/services.dart';
 
 class TitleField extends StatelessWidget {
   final void Function(String) onSaved;
-
-  const TitleField({super.key, required this.onSaved});
+  final TextEditingController controller;
+  const TitleField({super.key, required this.controller, required this.onSaved});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
         labelText: 'Blog Title Here',
