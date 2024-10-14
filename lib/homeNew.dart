@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_task1/Task_5/dynamic_list.dart';
+import 'package:flutter_task1/Task_7/user_blogs_navigation.dart';
 import 'package:flutter_task1/login.dart';
 import 'package:flutter_task1/router.dart';
 import 'package:flutter_task1/sharedpref.dart';
@@ -185,8 +186,13 @@ class _HomeNewState extends State<Homenew> {
                       width: buttonWidth,
                       height: buttonHeight,
                       child:ActionButtons(
-                        text: "Coming Soon",
-                        onPressed: () {},
+                        text: "Routing and Nevigation",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const UserBlogsNavigation()),
+                          );
+                        },
                         backgroundColor: Colors.purple,
                         textColor: Colors.white,
                       ),

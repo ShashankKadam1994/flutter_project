@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task1/Task_7/blog_page.dart';
 import 'package:flutter_task1/utilility/card_modal.dart';
 
 class BlogCard extends StatelessWidget {
@@ -79,6 +80,27 @@ class BlogCard extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
+
+              ),
+            ),
+
+             Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton(
+                onPressed: () {
+                     Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => BlogPage(blogTitle:title,blogContent:blogContent,blogDate:date,blogUser:authorName)) ,
+                      );
+                },
+                child:const Text(
+                  "Read on next page",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    color: Colors.blue,
+                  ),
+                ),
+                
               ),
             ),
           ],
