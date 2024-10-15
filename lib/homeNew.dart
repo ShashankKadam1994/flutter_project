@@ -128,7 +128,7 @@ class _HomeNewState extends State<Homenew> {
             firstname != null && lastname != null
                 ? Center(
               child: Text(
-                "Welcome Priyanka\nToday's date is ${formatDate(dateCurr)}: $firstname $lastname",
+                "Welcome Priyanka Mam\nToday's date is ${formatDate(dateCurr)}: $firstname $lastname",
                 style: TextStyle(fontSize: 18),
                 textAlign: TextAlign.center,
               ),
