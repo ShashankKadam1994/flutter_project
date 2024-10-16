@@ -43,6 +43,8 @@ dependencies:
   email_validator: '^2.1.16'
   video_player: ^2.8.6
   sqflite: ^2.3.3+1
+  http: ^1.2.2
+  url_launcher: ^6.3.0
 
 
 
@@ -93,7 +95,7 @@ flutter:
     - assets/result.png
     - assets/course.png
     - assets/booking.png
-#    - assets/background.png
+    - assets/imageNotFound.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
