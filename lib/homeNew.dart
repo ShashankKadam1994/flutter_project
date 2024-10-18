@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_task1/Task_5/dynamic_list.dart';
 import 'package:flutter_task1/Task_7/user_blogs_navigation.dart';
+import 'package:flutter_task1/Task_9/fetch_user_data.dart';
 import 'package:flutter_task1/login.dart';
 import 'package:flutter_task1/router.dart';
 import 'package:flutter_task1/sharedpref.dart';
@@ -202,8 +203,13 @@ class _HomeNewState extends State<Homenew> {
                       width: buttonWidth,
                       height: buttonHeight,
                       child:ActionButtons(
-                        text: "Coming Soon",
-                        onPressed: () {},
+                        text: "Fetch Movie Data",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const FetchUserData()),
+                          );
+                        },
                         backgroundColor: Colors.purple,
                         textColor: Colors.white,
                       ),
