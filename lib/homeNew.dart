@@ -120,6 +120,119 @@ class _HomeNewState extends State<Homenew> {
           )
         ],
       ),
+      drawer: Container(
+        width: MediaQuery.of(context).size.width * 0.8,
+        decoration: const BoxDecoration(color: Colors.grey),
+        child: Column(
+          children: [
+            Container(
+              height: 150,
+              width: MediaQuery.of(context).size.width,
+              decoration: const BoxDecoration(color: Colors.white),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: const Icon(
+                    Icons.person,
+                    size: 30,
+                  )),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left:8.0),
+                    child: Icon(
+                      Icons.person,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, AppRoutes.profile);
+                    },
+                    child: const Align(
+                      alignment: FractionalOffset.centerLeft,
+                      child: Text(
+                        "Profile",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                  ),
+                  const Spacer(),
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+            const Divider(
+              height: 0,
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left:8.0),
+                    child: Icon(
+                      Icons.exit_to_app,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  TextButton(
+                    onPressed: ()async {
+                      showDialog(
+                        context: context,
+                        builder: (c) => AlertDialog(
+                          title: const Text('Logout'),
+                          content: const Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [Text("Do you want to logout?")],
+                          ),
+                          actions: [
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text("No")),
+                            TextButton(
+                                onPressed: () async {
+                                  await logout();
+                                },
+                                child: const Text("Yes"))
+                          ],
+                        ),);
+                    },
+                    child: const Align(
+                      alignment: FractionalOffset.centerLeft,
+                      child: Text(
+                        "Logout",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+            ),
+            const Divider(
+              height: 0,
+            )
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

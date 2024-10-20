@@ -206,7 +206,7 @@ class _LoginState extends State<Login> {
                   //   ),
                   // );
 
-                  Navigator.of(context).pushNamed(AppRoutes.home);
+                  Navigator.of(context).pushNamed(AppRoutes.homeNew);
                 },
                 style: ElevatedButton.styleFrom(
                     fixedSize: const Size.fromWidth(200),

@@ -5,6 +5,7 @@ import 'package:flutter_task1/Task_3/user_dashbord.dart';
 import 'package:flutter_task1/Task_5/dynamic_list.dart';
 import 'package:flutter_task1/Task_7/blog_page.dart';
 import 'package:flutter_task1/home.dart';
+import 'package:flutter_task1/homeNew.dart';
 import 'package:flutter_task1/login.dart';
 import 'package:flutter_task1/practise.dart';
 import 'package:flutter_task1/profile.dart';
@@ -18,6 +19,7 @@ class AppRoutes {
   static const String dashbord = "dashbord";
   static const String userDashboard = "userDashboard";
   static const String dynamicList = "dynamicList";
+  static const String homeNew = "homeNew";
 
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -39,6 +41,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => DynamicList());
       case userDashboard:
         return MaterialPageRoute(builder: (_) => UserDashbord());
+      case homeNew:
+        return MaterialPageRoute(builder: (_) => Homenew());
       default:
         return null;
     }

@@ -18,14 +18,12 @@ class MovieCard extends StatefulWidget {
 class _MovieCardState extends State<MovieCard> {
   Future<void> _launchUrl(String urlString) async {
     final url = Uri.parse(urlString);
-    try {
-      if (await canLaunchUrl(url)) {
-        await launchUrl(url);
-      } else {
-        throw 'Could not launch $urlString';
-      }
-    } catch (error) {
-      print(error);
+    print('Attempting to launch: $url');
+
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      print('Could not launch $url');
     }
   }
 
@@ -33,63 +31,65 @@ class _MovieCardState extends State<MovieCard> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(16.0),
-      child:Card(
+      child: Card(
         elevation: 2.0,
-        child: Padding(padding: EdgeInsets.all(10.0),
-        child:Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Image.network(
-              widget.movieData.image,
-              height: 150,
-              width: 150,
-              fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Image.asset(
-                  'assets/imageNotFound.png',
+        child: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Image.network(
+                  widget.movieData.image,
                   height: 150,
                   width: 150,
                   fit: BoxFit.cover,
-                );
-              },
-            ),
-            ),
-            
-            const SizedBox(height: 8),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Text("Movie Name : " + widget.movieData.movie.toString()),
-            ),
-            const SizedBox(height: 8),
-            Align(
-              alignment: Alignment.topLeft,
-              child: Text("Movie Rating : " + widget.movieData.rating.toString()),
-            ),
-            const SizedBox(height: 8),
-            Align(
-              alignment: Alignment.topLeft,
-              child: RichText(
-                text: TextSpan(
-                  children: [
-                    const TextSpan(text: "IMDB url : "),
-                    TextSpan(
-                      text: "Click here.",
-                      style: const TextStyle(
-                        color: Colors.blueGrey,
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          _launchUrl(widget.movieData.imdbUrl);
-                        },
-                    ),
-                  ],
+                  errorBuilder: (context, error, stackTrace) {
+                    return Image.asset(
+                      'assets/imageNotFound.png',
+                      height: 150,
+                      width: 150,
+                      fit: BoxFit.cover,
+                    );
+                  },
                 ),
               ),
-            ),
-          ],
+              const SizedBox(height: 8),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text("Movie Name : " + widget.movieData.movie.toString()),
+              ),
+              const SizedBox(height: 8),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text("Movie Rating : " + widget.movieData.rating.toString()),
+              ),
+              const SizedBox(height: 8),
+              Align(
+                alignment: Alignment.topLeft,
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      const TextSpan(text: "IMDB url : "),
+                      TextSpan(
+                        text: "Click here.",
+                        style: const TextStyle(
+                          color: Colors.blueGrey,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            _launchUrl(widget.movieData.imdbUrl);
+                          },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-      )));
+      ),
+    );
   }
 }
