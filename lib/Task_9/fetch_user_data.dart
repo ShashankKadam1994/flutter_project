@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_task1/Task_9/fetch_movie_service.dart';
 import 'package:flutter_task1/Task_9/user_data_model.dart';
 import 'package:flutter_task1/Task_9/widgets/movie_card.dart';
@@ -15,10 +16,24 @@ class _FetchUserData extends State<FetchUserData> {
   @override
   void initState() {
     super.initState();
-    changeStationFunction();
+    checkInternetConnection();
   }
 
   List<Movie> MovieData = [];
+
+  Future<void> checkInternetConnection() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      showErrorModal(
+        context,
+        'No internet connection. Please check your connection and try again.',
+        "No Internet",
+        () {},
+      );
+    } else {
+      changeStationFunction();
+    }
+  }
 
   Future<void> changeStationFunction() async {
     try {
@@ -27,7 +42,7 @@ class _FetchUserData extends State<FetchUserData> {
         MovieData = movieData;
       });
     } catch (e) {
-      showErrorModal(context, '$e', "Error", (){});
+      showErrorModal(context, '$e', "Error", () {});
     }
   }
 
@@ -40,7 +55,7 @@ class _FetchUserData extends State<FetchUserData> {
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          int crossAxisCount = 1; 
+          int crossAxisCount = 1;
           double screenWidth = MediaQuery.of(context).size.width;
 
           if (screenWidth >= 600) {
@@ -52,13 +67,11 @@ class _FetchUserData extends State<FetchUserData> {
               padding: const EdgeInsets.all(8.0),
               child: Wrap(
                 spacing: 8.0,
-                runSpacing: 8.0, 
+                runSpacing: 8.0,
                 children: MovieData.map((movie) {
                   return Container(
-                    width: (constraints.maxWidth / crossAxisCount) -
-                        16, 
-                    child:
-                     MovieCard(
+                    width: (constraints.maxWidth / crossAxisCount) - 16,
+                    child: MovieCard(
                       movieData: movie,
                     ),
                   );

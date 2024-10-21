@@ -45,9 +45,9 @@ class _SplashScreenState extends State<SplashScreen> {
         const Duration(milliseconds: 3000), () {}); // Delay for 3 seconds
     Navigator.pushReplacement(
       context,
-      // MaterialPageRoute(builder: (context) => const Login()),
+      MaterialPageRoute(builder: (context) => const Login()),
       // MaterialPageRoute(builder: (context) => const Dashbord()) ,
-      MaterialPageRoute(builder: (context) => const Homenew()) ,
+      // MaterialPageRoute(builder: (context) => const Homenew()) ,
     );
   }
 
