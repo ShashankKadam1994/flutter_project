@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_task1/Task_9/fetch_movie_service.dart';
 import 'package:flutter_task1/Task_9/user_data_model.dart';
 import 'package:flutter_task1/Task_9/widgets/movie_card.dart';
 import 'package:flutter_task1/utilility/error_modal.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FetchUserData extends StatefulWidget {
   const FetchUserData({super.key});
@@ -32,6 +35,8 @@ class _FetchUserData extends State<FetchUserData> {
       );
     } else {
       changeStationFunction();
+
+      // kjdjkdfjvdfjkv()
     }
   }
 
@@ -41,6 +46,10 @@ class _FetchUserData extends State<FetchUserData> {
       setState(() {
         MovieData = movieData;
       });
+      final prefs = await SharedPreferences.getInstance();
+      List<String> jsonStringList = movieData.map((item) => jsonEncode(item.toJson())).toList();
+      await prefs.setStringList('movieData', jsonStringList);
+      print(prefs.getStringList('movieData'));
     } catch (e) {
       showErrorModal(context, '$e', "Error", () {});
     }
