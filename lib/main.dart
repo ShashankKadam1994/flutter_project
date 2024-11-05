@@ -3,41 +3,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task1/router.dart';
 import 'package:flutter_task1/sharedpref.dart';
 import 'package:flutter_task1/splash_screen.dart';
-import 'package:flutter_task1/Task_15/widgets/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 
 import 'db.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
-
-
-  // if (kIsWeb) {
-  //   await Firebase.initializeApp(
-  //     options: const FirebaseOptions(
-  //       apiKey: "your-api-key",
-  //       authDomain: "your-auth-domain",
-  //       projectId: "your-project-id",
-  //       storageBucket: "your-storage-bucket",
-  //       messagingSenderId: "your-messaging-sender-id",
-  //       appId: "your-app-id",
-  //     ),
-  //   );
-  // } else {
-  //   await Firebase.initializeApp();
-  // }
+  
+  // Initialize Firebase
+  await Firebase.initializeApp(
+    options: kIsWeb
+        ? FirebaseOptions(
+            apiKey: "AIzaSyCOgw4Xl0fIexyl4F7rElqTb0f_H0T9efQ",
+            authDomain: "fluttertask-7d4f6.firebaseapp.com",
+            projectId: "fluttertask-7d4f6",
+            storageBucket: "fluttertask-7d4f6.appspot.com",
+            messagingSenderId: "855938418989",
+            appId: "1:855938418989:web:29b74bf630758679fdeba4",
+          )
+        : null, // For Android/iOS, Firebase will use google-services.json
+  );
+  
   // await MyDataBase().initializedDB();
-  // await SessionManager().init();
+  await SessionManager().init();
+  
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-
-  // This widget is the root of your application.
 
   @override
   Widget build(BuildContext context) {
@@ -45,21 +39,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Task 1',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),

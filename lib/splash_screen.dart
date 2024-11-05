@@ -31,6 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
     //   _navigateToReg();
     // }
     // _navigateToReg();
+    final FirebaseAuth _auth = FirebaseAuth.instance;
     _checkUserStatus();
 
 

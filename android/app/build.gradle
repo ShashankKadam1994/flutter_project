@@ -20,7 +20,7 @@ def flutterVersionName = localProperties.getProperty("flutter.versionName", "1.0
 
 android {
     namespace = "com.example.flutter_task1"
-    compileSdk = 34 // Set your compile SDK version here
+    compileSdk = 34 // Set to the latest compatible SDK version
     ndkVersion = "21.3.6528147" // Adjust as needed
 
     compileOptions {
@@ -30,8 +30,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.flutter_task1"
-        minSdk = 23 // Replace with flutter.minSdkVersion if needed
-        targetSdk = 34 // Set target SDK version here
+        minSdk = 23 // Update if your app requires a higher minimum SDK
+        targetSdk = 34 // Set to the latest compatible SDK version
         versionCode = flutterVersionCode
         versionName = flutterVersionName
     }
@@ -51,10 +51,8 @@ flutter {
 }
 
 dependencies {
-    implementation platform('com.google.firebase:firebase-bom:33.5.1')
+    implementation platform('com.google.firebase:firebase-bom:33.5.1') // Update to latest BOM if available
     implementation 'com.google.firebase:firebase-analytics'
     // Add dependencies for other Firebase products here
-//    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.10"
-
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.20" // Update Kotlin version if needed
 }
