@@ -1,10 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task1/Task_1/dashbord.dart';
 import 'package:flutter_task1/Task_1/hello_profile.dart';
+import 'package:flutter_task1/Task_15/widgets/signin.dart';
 import 'package:flutter_task1/Task_3/user_dashbord.dart';
 import 'package:flutter_task1/home.dart';
 import 'package:flutter_task1/homeNew.dart';
 import 'package:flutter_task1/login.dart';
+import 'package:flutter_task1/Task_15/widgets/signup.dart';
+
 import 'package:flutter_task1/practise.dart';
 import 'package:flutter_task1/sharedpref.dart';
 
@@ -26,9 +30,43 @@ class _SplashScreenState extends State<SplashScreen> {
     // }else{
     //   _navigateToReg();
     // }
-    _navigateToReg();
+    // _navigateToReg();
+    _checkUserStatus();
+
 
   }
+
+
+   _checkUserStatus() async {
+    await Future.delayed(Duration(seconds: 2)); // Simulate loading
+
+    if (FirebaseAuth.instance.currentUser != null) {
+      // If user is signed in, navigate to home page
+      // Navigator.pushReplacementNamed(context, '/home');
+
+      Navigator.pushReplacement(
+        context,
+        // MaterialPageRoute(builder: (context) => const Login()),
+        // MaterialPageRoute(builder: (context) => const Dashbord()) ,
+        MaterialPageRoute(builder: (context) => const Homenew()) ,
+      );
+    } else {
+      // If user is not signed in, navigate to sign-in page
+      // Navigator.pushReplacementNamed(context, '/signin');
+
+      Navigator.pushReplacement(
+        context,
+        // MaterialPageRoute(builder: (context) => const Login()),
+        // MaterialPageRoute(builder: (context) => const Dashbord()) ,
+        MaterialPageRoute(builder: (context) => const SignUp()) ,
+      );
+    }
+  }
+
+
+
+
+
 
   _navigateToHome() async {
     await Future.delayed(

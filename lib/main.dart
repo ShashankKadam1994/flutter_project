@@ -1,12 +1,33 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_task1/router.dart';
 import 'package:flutter_task1/sharedpref.dart';
 import 'package:flutter_task1/splash_screen.dart';
+import 'package:flutter_task1/Task_15/widgets/signup.dart';
+import 'package:firebase_core/firebase_core.dart';
+
 
 import 'db.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+
+
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+      options: const FirebaseOptions(
+        apiKey: "your-api-key",
+        authDomain: "your-auth-domain",
+        projectId: "your-project-id",
+        storageBucket: "your-storage-bucket",
+        messagingSenderId: "your-messaging-sender-id",
+        appId: "your-app-id",
+      ),
+    );
+  } else {
+    await Firebase.initializeApp();
+  }
   // await MyDataBase().initializedDB();
   // await SessionManager().init();
   runApp(const MyApp());
@@ -14,6 +35,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   // This widget is the root of your application.
 

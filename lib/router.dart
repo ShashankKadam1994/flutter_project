@@ -4,6 +4,9 @@ import 'package:flutter_task1/Task_1/hello_profile.dart';
 import 'package:flutter_task1/Task_3/user_dashbord.dart';
 import 'package:flutter_task1/Task_5/dynamic_list.dart';
 import 'package:flutter_task1/Task_7/blog_page.dart';
+import 'package:flutter_task1/Task_15/widgets/signup.dart';
+import 'package:flutter_task1/Task_15/widgets/signin.dart';
+
 import 'package:flutter_task1/home.dart';
 import 'package:flutter_task1/homeNew.dart';
 import 'package:flutter_task1/login.dart';
@@ -20,12 +23,13 @@ class AppRoutes {
   static const String userDashboard = "userDashboard";
   static const String dynamicList = "dynamicList";
   static const String homeNew = "homeNew";
-
+  static const String signup = "signup";
+  static const String signIn = "signIn";
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case home:
-        return MaterialPageRoute(builder: (_) => HomePage());//HelloProfile
+        return MaterialPageRoute(builder: (_) => HomePage()); //HelloProfile
       case helloWord:
         return MaterialPageRoute(builder: (_) => HelloProfile());
       case login:
@@ -43,6 +47,11 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => UserDashbord());
       case homeNew:
         return MaterialPageRoute(builder: (_) => Homenew());
+      case signup:
+        return MaterialPageRoute(builder: (_) => SignUp());
+
+      case signIn:
+        return MaterialPageRoute(builder: (_) => SignIn());
       default:
         return null;
     }

@@ -6,6 +6,7 @@ import 'package:flutter_task1/Task_7/user_blogs_navigation.dart';
 import 'package:flutter_task1/Task_9/fetch_user_data.dart';
 import 'package:flutter_task1/login.dart';
 import 'package:flutter_task1/router.dart';
+import 'package:flutter_task1/Task_15/widgets/signup.dart';
 import 'package:flutter_task1/sharedpref.dart';
 import 'package:intl/intl.dart';
 
@@ -321,6 +322,23 @@ class _HomeNewState extends State<Homenew> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => const FetchUserData()),
+                          );
+                        },
+                        backgroundColor: Colors.purple,
+                        textColor: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+
+                    SizedBox(
+                      width: buttonWidth,
+                      height: buttonHeight,
+                      child:ActionButtons(
+                        text: "Firebase Auth",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SignUp()),
                           );
                         },
                         backgroundColor: Colors.purple,
